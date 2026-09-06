@@ -1,0 +1,2507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yummzville - Nigerian & International Recipes, Simplified</title>
+    <meta
+      name="description"
+      content="Discover a world of delicious recipes with Yummzville. Search for your favourite dishes, explore new flavours, and find the perfect recipe for every craving."
+    />
+    <link rel="canonical" href="https://yummzville-01.vercel.app/" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn link previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Yummzville - Nigerian & International Recipes" />
+    <meta
+      property="og:description"
+      content="Discover a world of delicious recipes with Yummzville. Search for your favourite dishes, explore new flavours, and find the perfect recipe for every craving."
+    />
+    <meta property="og:url" content="https://yummzville-01.vercel.app/" />
+    <meta property="og:image" content="https://yummzville-01.vercel.app/og-image.png" />
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yummzville - Nigerian & International Recipes" />
+    <meta
+      name="twitter:description"
+      content="Discover a world of delicious recipes with Yummzville. Search for your favourite dishes, explore new flavours, and find the perfect recipe for every craving."
+    />
+    <meta name="twitter:image" content="https://yummzville-01.vercel.app/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- Google Analytics (GA4) - connected to your real Measurement ID -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7GTZ07TK4W"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-7GTZ07TK4W");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #fff7ed;
+        --card: #ffffff;
+        --coral: #ff7a5c;
+        --coral-dark: #e85b3b;
+        --raspberry: #e24b76;
+        --saffron: #f4a93a;
+        --sage: #4f9e72;
+        --plum: #2e2230;
+        --plum-soft: #7a6b78;
+        --pink: #ffdce6;
+        --yellow: #ffebb0;
+        --border: #f0e2d0;
+        --radius-lg: 24px;
+        --radius-md: 16px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--plum);
+        font-family: "Nunito", sans-serif;
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Baloo 2", sans-serif;
+        font-weight: 700;
+        color: var(--plum);
+        margin: 0;
+      }
+      .wrap {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      header {
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        background: rgba(255, 247, 237, 0.94);
+        backdrop-filter: blur(6px);
+        z-index: 20;
+        border-bottom: 2px solid var(--border);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Baloo 2", sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        color: var(--coral-dark);
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .logo-badge {
+        width: 34px;
+        height: 34px;
+        background: var(--coral);
+        border-radius: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        transform: rotate(-6deg);
+      }
+      nav.links {
+        display: flex;
+        gap: 6px;
+        font-weight: 700;
+        font-size: 14px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      nav.links::-webkit-scrollbar {
+        display: none;
+      }
+      nav.links a {
+        color: var(--plum-soft);
+        cursor: pointer;
+        white-space: nowrap;
+        padding: 8px 14px;
+        border-radius: 999px;
+      }
+      nav.links a:hover {
+        color: var(--coral-dark);
+      }
+      nav.links a.active {
+        background: var(--plum);
+        color: white;
+      }
+      nav.links a.surprise-link {
+        background: var(--saffron);
+        color: var(--plum);
+      }
+      nav.links a.surprise-link:hover {
+        background: #ffbd57;
+        color: var(--plum);
+      }
+      nav.links a.surprise-link.active {
+        background: var(--plum);
+        color: white;
+      }
+
+      .page {
+        display: none;
+      }
+      .page.active {
+        display: block;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 32px 0 48px;
+        position: relative;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: 42px;
+        line-height: 1.14;
+        margin-bottom: 16px;
+      }
+      .hero h1 span {
+        color: var(--raspberry);
+      }
+      .hero p {
+        color: var(--plum-soft);
+        font-size: 16px;
+        max-width: 420px;
+        margin-bottom: 26px;
+      }
+      .search-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      #search-input {
+        flex: 1;
+        min-width: 200px;
+        padding: 14px 20px;
+        border-radius: 999px;
+        border: 2px solid var(--border);
+        font-size: 15px;
+        font-family: "Nunito";
+        outline: none;
+        background: var(--card);
+      }
+      #search-input:focus {
+        border-color: var(--coral);
+      }
+      .btn {
+        padding: 14px 22px;
+        border-radius: 999px;
+        border: none;
+        font-family: "Baloo 2";
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          background 0.15s ease;
+        white-space: nowrap;
+      }
+      .btn:active {
+        transform: scale(0.96);
+      }
+      .btn-primary {
+        background: var(--coral);
+        color: white;
+      }
+      .btn-primary:hover {
+        background: var(--coral-dark);
+      }
+      .btn-ghost {
+        background: var(--card);
+        color: var(--plum);
+        border: 2px solid var(--border);
+      }
+      .btn-ghost:hover {
+        border-color: var(--raspberry);
+        color: var(--raspberry);
+      }
+      .btn-saffron {
+        background: var(--saffron);
+        color: var(--plum);
+      }
+      .btn-saffron:hover {
+        background: #ffbd57;
+      }
+
+      .hero-collage {
+        position: relative;
+        height: 320px;
+      }
+      .hero-collage img {
+        position: absolute;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 5px solid var(--cream);
+        box-shadow: 0 10px 24px rgba(46, 34, 48, 0.12);
+        background: var(--border);
+      }
+      .hc-1 {
+        width: 180px;
+        height: 180px;
+        top: 0;
+        left: 20px;
+        z-index: 3;
+      }
+      .hc-2 {
+        width: 140px;
+        height: 140px;
+        top: 20px;
+        right: 0;
+        z-index: 2;
+      }
+      .hc-3 {
+        width: 150px;
+        height: 150px;
+        bottom: 0;
+        left: 70px;
+        z-index: 2;
+      }
+      .hc-4 {
+        width: 120px;
+        height: 120px;
+        bottom: 10px;
+        right: 40px;
+        z-index: 1;
+      }
+
+      .cat-strip {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+      }
+      .cat-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--card);
+        border: 2px solid var(--border);
+        border-radius: 999px;
+        padding: 10px 18px;
+        font-family: "Baloo 2";
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        color: var(--plum-soft);
+      }
+      .cat-chip:hover {
+        border-color: var(--coral);
+        color: var(--coral-dark);
+      }
+      .cat-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .section {
+        padding: 32px 0;
+      }
+      .page-title {
+        padding: 36px 0 8px;
+      }
+      .page-title h1 {
+        font-size: 34px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .page-title p {
+        color: var(--plum-soft);
+        font-size: 15px;
+        margin: 0 0 24px;
+      }
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+      .section-head h2 {
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .section-head a {
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--plum-soft);
+        cursor: pointer;
+      }
+      .section-head a:hover {
+        color: var(--coral-dark);
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .recipe-card {
+        background: var(--card);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 2px solid var(--border);
+        cursor: pointer;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .recipe-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--coral);
+        box-shadow: 0 12px 20px rgba(46, 34, 48, 0.1);
+      }
+      .recipe-card .thumb-wrap {
+        position: relative;
+      }
+      .recipe-card img {
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+        display: block;
+      }
+      .recipe-card .tag {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--coral-dark);
+        font-size: 11px;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 999px;
+      }
+      .recipe-card-body {
+        padding: 12px 14px 14px;
+      }
+      .recipe-card-body h3 {
+        font-size: 14px;
+        margin-bottom: 4px;
+        line-height: 1.3;
+      }
+      .recipe-card-body p {
+        font-size: 12px;
+        color: var(--plum-soft);
+        margin: 0;
+      }
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          var(--border) 25%,
+          #f7ede0 37%,
+          var(--border) 63%
+        );
+        background-size: 400% 100%;
+        animation: shimmer 1.4s ease infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 100% 0;
+        }
+        100% {
+          background-position: 0 0;
+        }
+      }
+      .skel-card {
+        border-radius: var(--radius-md);
+        height: 194px;
+      }
+
+      .surprise-banner {
+        background: var(--plum);
+        border-radius: var(--radius-lg);
+        padding: 30px 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .surprise-banner h2 {
+        color: white;
+        font-size: 22px;
+        margin-bottom: 6px;
+      }
+      .surprise-banner p {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 14px;
+        margin: 0;
+      }
+
+      /* Surprise page */
+      .surprise-stage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 0 50px;
+      }
+      .surprise-dial {
+        width: 100%;
+        max-width: 420px;
+        background: var(--card);
+        border: 3px dashed var(--border);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        margin-bottom: 24px;
+      }
+      .surprise-dial img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: var(--radius-md);
+        margin-bottom: 18px;
+        background: var(--border);
+      }
+      .surprise-dial h3 {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+      .surprise-dial .meta {
+        color: var(--plum-soft);
+        font-size: 13px;
+        margin-bottom: 14px;
+      }
+      .surprise-dial .ing-line {
+        font-size: 13px;
+        color: var(--plum-soft);
+        margin-bottom: 0;
+      }
+      .surprise-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .about-card {
+        background: var(--card);
+        border: 2px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 32px 36px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .about-card h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      .about-card p {
+        color: var(--plum-soft);
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+      .about-stats {
+        display: flex;
+        gap: 24px;
+      }
+      .about-stat {
+        text-align: center;
+      }
+      .about-stat b {
+        display: block;
+        font-family: "Baloo 2";
+        font-size: 22px;
+        color: var(--coral-dark);
+      }
+      .about-stat span {
+        font-size: 12px;
+        color: var(--plum-soft);
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(46, 34, 48, 0.5);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 50;
+      }
+      .overlay.show {
+        display: flex;
+      }
+      .modal {
+        background: var(--cream);
+        border-radius: var(--radius-lg);
+        max-width: 600px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+      }
+      .modal img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+      }
+      .modal-body {
+        padding: 24px 28px 32px;
+      }
+      .modal-close {
+        float: right;
+        background: var(--card);
+        border: 2px solid var(--border);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        cursor: pointer;
+        color: var(--plum);
+      }
+      .modal h2 {
+        font-size: 24px;
+        margin-bottom: 6px;
+      }
+      .modal .meta {
+        color: var(--plum-soft);
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .modal h4 {
+        font-family: "Baloo 2";
+        font-size: 15px;
+        margin-bottom: 10px;
+        color: var(--sage);
+      }
+      .modal ul {
+        padding-left: 20px;
+        margin: 0 0 24px;
+      }
+      .modal ul li {
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+      .modal .instructions {
+        font-size: 14px;
+        color: var(--plum-soft);
+        white-space: pre-line;
+      }
+      .find-it-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 4px;
+      }
+      .find-it-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 2px solid var(--border);
+        background: var(--card);
+        color: var(--plum);
+        font-family: "Baloo 2";
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .find-it-btn:hover {
+        border-color: var(--coral);
+        color: var(--coral-dark);
+      }
+      .local-badge {
+        background: var(--sage);
+        color: white;
+      }
+      .type-chip {
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 2px solid var(--border);
+        background: var(--card);
+        font-family: "Baloo 2";
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--plum-soft);
+        cursor: pointer;
+      }
+      .type-chip:hover {
+        border-color: var(--coral);
+        color: var(--coral-dark);
+      }
+      .type-chip.active {
+        background: var(--plum);
+        border-color: var(--plum);
+        color: white;
+      }
+      .restaurant-card {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        background: var(--card);
+        border: 2px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 14px 16px;
+        margin-bottom: 12px;
+      }
+      .restaurant-card.featured-card {
+        border-color: var(--saffron);
+        background: #fffaf0;
+      }
+      .restaurant-info h3 {
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+      .restaurant-info .r-meta {
+        font-size: 12px;
+        color: var(--plum-soft);
+        margin: 0 0 6px;
+      }
+      .rating-stars {
+        color: var(--saffron);
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+      .whatsapp-btn {
+        margin-left: auto;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: #25d366;
+        color: white;
+        font-family: "Baloo 2";
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+        border: none;
+      }
+      .whatsapp-btn:hover {
+        background: #1ebe5b;
+      }
+      .featured-tag {
+        display: inline-block;
+        background: var(--saffron);
+        color: var(--plum);
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 999px;
+        margin-bottom: 4px;
+      }
+      .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--plum-soft);
+        background: var(--card);
+        border: 2px dashed var(--border);
+        border-radius: var(--radius-lg);
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 0 50px;
+        color: var(--plum-soft);
+        font-size: 13px;
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-collage {
+          display: none;
+        }
+        .row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .about-card {
+          grid-template-columns: 1fr;
+        }
+        nav.links {
+          gap: 2px;
+          font-size: 13px;
+        }
+        nav.links a {
+          padding: 8px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <div class="logo" data-page="home">
+          <div class="logo-badge">Y</div>
+          Yummzville🍴
+        </div>
+        <nav class="links">
+          <a data-page="home" class="active">Home</a>
+          <a data-page="local">Naija Kitchen</a>
+          <a data-page="dessert">Dessert</a>
+          <a data-page="snacks">Snacks</a>
+          <a data-page="meals">Meals</a>
+          <a data-page="surprise" class="surprise-link">Surprise me</a>
+          <a data-page="featured">Featured</a>
+          <a data-page="about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div class="page active" id="page-home">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <h1>Stuck on what to <span>eat</span>? We've got ideas.</h1>
+            <p>
+              Real recipes, real photos, no endless scrolling. Browse by meal,
+              search for a craving, or let us surprise you.
+            </p>
+            <div class="search-row">
+              <input
+                type="text"
+                id="search-input"
+                placeholder="Try 'pasta' or 'chicken curry'"
+              />
+              <button class="btn btn-primary" id="search-btn">Search</button>
+            </div>
+          </div>
+          <div class="hero-collage" id="hero-collage">
+            <img class="hc-1 skeleton" id="hc-1" alt="" />
+            <img class="hc-2 skeleton" id="hc-2" alt="" />
+            <img class="hc-3 skeleton" id="hc-3" alt="" />
+            <img class="hc-4 skeleton" id="hc-4" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <section
+          class="section"
+          id="search-results-section"
+          style="display: none"
+        >
+          <div class="section-head">
+            <h2 id="search-results-title">
+              <span
+                class="section-dot"
+                style="background: var(--raspberry)"
+              ></span
+              >Search results
+            </h2>
+          </div>
+          <div class="row" id="search-grid"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>Browse by meal</h2></div>
+          <div class="cat-strip">
+            <div class="cat-chip" data-page="local">
+              <span class="cat-dot" style="background: var(--sage)"></span
+              >Naija Kitchen
+            </div>
+            <div class="cat-chip" data-page="dessert">
+              <span class="cat-dot" style="background: var(--raspberry)"></span
+              >Dessert
+            </div>
+            <div class="cat-chip" data-page="snacks">
+              <span class="cat-dot" style="background: #8b7fd4"></span>Snacks
+            </div>
+            <div class="cat-chip" data-page="meals">
+              <span class="cat-dot" style="background: var(--sage)"></span>Meals
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>
+              <span
+                class="section-dot"
+                style="background: var(--raspberry)"
+              ></span
+              >Today's picks
+            </h2>
+          </div>
+          <div class="row" id="grid-home-preview"></div>
+        </section>
+
+        <section class="section">
+          <div class="surprise-banner">
+            <div>
+              <h2>Can't decide? Let us pick.</h2>
+              <p>
+                Head to the Surprise me page for a fresh random recipe every
+                time.
+              </p>
+            </div>
+            <button class="btn btn-saffron" data-page="surprise">
+              Surprise me
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- LOCAL / NAIJA KITCHEN PAGE -->
+    <div class="page" id="page-local">
+      <div class="wrap">
+        <div class="page-title">
+          <h1>
+            <span class="section-dot" style="background: var(--sage)"></span>
+            Naija Kitchen
+          </h1>
+          <p>
+            Real Nigerian dishes, alongside everything from around the world.
+          </p>
+        </div>
+        <div class="cat-strip" id="local-type-filter"></div>
+        <div class="row" id="grid-local"></div>
+      </div>
+    </div>
+
+    <!-- DESSERT PAGE -->
+    <div class="page" id="page-dessert">
+      <div class="wrap">
+        <div class="page-title">
+          <h1>
+            <span
+              class="section-dot"
+              style="background: var(--raspberry)"
+            ></span>
+            Dessert
+          </h1>
+          <p>Sweet finishes, from simple to showing-off.</p>
+        </div>
+        <div class="row" id="grid-dessert"></div>
+      </div>
+    </div>
+
+    <!-- SNACKS PAGE -->
+    <div class="page" id="page-snacks">
+      <div class="wrap">
+        <div class="page-title">
+          <h1>
+            <span class="section-dot" style="background: #8b7fd4"></span> Snacks
+          </h1>
+          <p>Small bites for whenever hunger strikes in between.</p>
+        </div>
+        <div class="row" id="grid-snacks"></div>
+      </div>
+    </div>
+
+    <!-- MEALS PAGE (breakfast, lunch, dinner together) -->
+    <div class="page" id="page-meals">
+      <div class="wrap">
+        <div class="page-title">
+          <h1>
+            <span class="section-dot" style="background: var(--sage)"></span>
+            Meals
+          </h1>
+          <p>Breakfast, lunch and dinner, all in one place.</p>
+        </div>
+
+        <section class="section" style="padding-top: 0">
+          <div class="section-head">
+            <h2>
+              <span class="section-dot" style="background: var(--yellow)"></span
+              >Breakfast
+            </h2>
+          </div>
+          <div class="row" id="grid-breakfast"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>
+              <span class="section-dot" style="background: var(--coral)"></span
+              >Lunch
+            </h2>
+          </div>
+          <div class="row" id="grid-lunch"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>
+              <span class="section-dot" style="background: var(--sage)"></span
+              >Dinner
+            </h2>
+          </div>
+          <div class="row" id="grid-dinner"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- SURPRISE PAGE -->
+    <div class="page" id="page-surprise">
+      <div class="wrap">
+        <div class="page-title">
+          <h1>
+            <span class="section-dot" style="background: var(--saffron)"></span>
+            Surprise me
+          </h1>
+          <p>Can't decide? Hit the button and we'll pick something for you.</p>
+        </div>
+        <div class="surprise-stage">
+          <div class="surprise-dial" id="surprise-card">
+            <p style="color: var(--plum-soft); font-size: 14px">
+              Hit the button below to reveal your dish.
+            </p>
+          </div>
+          <div class="surprise-actions">
+            <button class="btn btn-saffron" id="surprise-roll-btn">
+              Surprise me
+            </button>
+            <button
+              class="btn btn-ghost"
+              id="surprise-view-btn"
+              style="display: none"
+            >
+              View full recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURED RESTAURANTS PAGE -->
+    <div class="page" id="page-featured">
+      <div class="wrap">
+        <div class="page-title">
+          <h1>
+            <span class="section-dot" style="background: var(--saffron)"></span>
+            Featured Restaurants
+          </h1>
+          <p>Spotlighted places serving up great Nigerian and international food.</p>
+        </div>
+        <div id="featured-list"></div>
+      </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div class="page" id="page-about">
+      <div class="wrap">
+        <div class="page-title">
+          <h1>Yummzville🍴</h1>
+          <p>Where every craving has a home.</p>
+        </div>
+        <div class="about-card">
+          <div>
+            <h2>What We Bring To The Table</h2>
+            <p>
+              Hungry? Curious? Or just standing in the kitchen staring at the
+              ingredients like they personally offended you? 😭<br />
+            </p>
+            <p>You’re in the right place.<br /></p>
+            <p>
+              We created Yummzville to make finding great recipes ridiculously
+              easy. Whether you’re craving something sweet, spicy, cheesy,
+              crispy, healthy, comforting—or something you’ve never even heard
+              of before—we’re here to help you discover it. From quick bites to
+              proper meals, classic favourites to dishes from around the world,
+              there’s always something new waiting to land on your plate. No
+              complicated searching. No endless scrolling. Just find it, cook
+              it, enjoy it.
+            </p>
+            <p>
+              Because food isn't just about filling your stomach. It’s about
+              trying something new, sharing a meal, impressing your friends,
+              feeding your family, and occasionally making something so good
+              that you immediately become the favourite person in the house. 😌
+              So grab your spoon, put on your imaginary chef hat, and let’s get
+              cooking. Your next favourite meal might only be one search away.
+              🍽️✨
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="about-stat"><b>3</b><span>Sections</span></div>
+            <div class="about-stat"><b>1000s</b><span>Recipes</span></div>
+            <div class="about-stat"><b>0</b><span>Sign-up needed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Yummzville is a recipe idea finder. Your city of delicious ideas😋👌
+    </footer>
+
+    <div class="overlay" id="modal-overlay">
+      <div class="modal">
+        <img id="modal-img" src="" alt="" />
+        <div class="modal-body">
+          <button class="modal-close" id="modal-close">&times;</button>
+          <h2 id="modal-title"></h2>
+          <p class="meta" id="modal-meta"></p>
+          <h4>Ingredients</h4>
+          <ul id="modal-ingredients"></ul>
+          <h4>How to make it</h4>
+          <p class="instructions" id="modal-instructions"></p>
+          <h4>Where to find it</h4>
+          <div class="find-it-row" id="modal-find-it"></div>
+          <button class="btn btn-primary" id="order-now-btn" style="margin-top: 14px;">
+            Order Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="order-overlay">
+      <div class="modal" style="max-width: 460px;">
+        <div class="modal-body">
+          <button class="modal-close" id="order-modal-close">&times;</button>
+          <h2 id="order-dish-title">Where to order this</h2>
+          <p class="meta" id="order-status-msg">
+            Finding restaurants near you...
+          </p>
+          <div id="order-city-picker" style="display: none; margin: 14px 0;">
+            <p style="font-size: 13px; color: var(--plum-soft); margin-bottom: 8px;">
+              Couldn't detect your location. Pick your city:
+            </p>
+            <div class="cat-strip" id="order-city-chips"></div>
+          </div>
+          <div id="order-restaurant-list" style="margin-top: 16px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const API = "https://www.themealdb.com/api/json/v1/1/";
+      const CAT_MAP = { dessert: "Dessert", snacks: "Starter" };
+      const loadedPages = {};
+      let currentSurpriseId = null;
+
+      // Curated Nigerian dishes. TheMealDB has no Nigerian category, and
+      // there's no reliable free public Nigerian recipe API to pull from
+      // (checked - the couple that exist aren't publicly hosted), so this
+      // is a larger hand-written set, grouped by type, with a live photo
+      // fetched from Wikipedia at runtime for each one.
+      const NIGERIAN_TYPES = [
+        "Rice",
+        "Soup",
+        "Snack",
+        "Swallow",
+        "Drink",
+        "Protein",
+        "Beans",
+        "Salad",
+        "Pastry",
+      ];
+      const NIGERIAN_DISHES = [
+        {
+          id: "local-jollof",
+          name: "Jollof Rice",
+          wikiSearch: "Jollof rice",
+          category: "Rice dish",
+          type: "Rice",
+          ingredients: [
+            "3 cups parboiled rice",
+            "6 large tomatoes, blended",
+            "3 red bell peppers, blended",
+            "2 scotch bonnet peppers, blended",
+            "1 large onion, chopped",
+            "1/2 cup vegetable oil",
+            "3 tablespoons tomato paste",
+            "2 chicken or beef stock cubes",
+            "1 teaspoon curry powder",
+            "1 teaspoon thyme",
+            "Salt to taste",
+          ],
+          instructions:
+            "Fry the chopped onion in oil until soft. Add tomato paste and fry for a few minutes. Pour in the blended tomato and pepper mix and fry on medium-high heat until the oil rises to the top and the raw taste is gone, about 15-20 minutes. Add curry powder, thyme, stock cubes and salt. Add the parboiled rice and enough stock or water to just cover it. Cover the pot and cook on low heat, stirring occasionally, until the rice is soft and has absorbed the sauce, about 25-30 minutes.",
+        },
+        {
+          id: "local-friedrice",
+          name: "Nigerian Fried Rice",
+          wikiSearch: "Nigerian fried rice",
+          category: "Rice dish",
+          type: "Rice",
+          ingredients: [
+            "3 cups parboiled rice, cooked and cooled",
+            "1 cup mixed vegetables (carrots, green peas, sweet corn)",
+            "1/2 cup green beans, diced",
+            "1 red bell pepper, diced",
+            "1/2 cup liver or chicken, diced (optional)",
+            "3 tablespoons vegetable oil",
+            "2 stock cubes",
+            "1 teaspoon curry powder",
+            "Salt to taste",
+          ],
+          instructions:
+            "Parboil the diced vegetables briefly, just until slightly tender, then drain. Heat oil in a large pan or wok and stir-fry the liver or chicken if using. Add the vegetables and stir-fry on high heat for a few minutes. Add the cooled rice, curry powder, stock cubes and salt, and stir-fry everything together until well combined and heated through.",
+        },
+        {
+          id: "local-ofadastew",
+          name: "Ofada Rice & Ayamase Stew",
+          wikiSearch: "Ofada rice",
+          category: "Rice dish",
+          type: "Rice",
+          ingredients: [
+            "3 cups ofada rice",
+            "10 green bell peppers, blended coarsely",
+            "5 scotch bonnet peppers (ata rodo), blended",
+            "1 cup bleached palm oil",
+            "2 onions, chopped",
+            "300g assorted meat and offal",
+            "2 stock cubes",
+            "1 tablespoon ground locust beans (iru)",
+            "Salt to taste",
+          ],
+          instructions:
+            "Cook the ofada rice in plenty of water until tender, then drain and rinse. For the stew, heat the bleached palm oil until it thins out, then fry the onions. Add the blended green pepper mix and fry on medium heat, stirring often, until the raw smell is gone and the stew thickens. Add the cooked meat and offal with a little stock, stir in the locust beans, and season with stock cubes and salt. Simmer for 10-15 minutes and serve hot over the rice.",
+        },
+        {
+          id: "local-coconutrice",
+          name: "Coconut Rice",
+          wikiSearch: "Coconut rice",
+          category: "Rice dish",
+          type: "Rice",
+          ingredients: [
+            "3 cups parboiled rice",
+            "2 cups coconut milk",
+            "1 onion, chopped",
+            "2 scotch bonnet peppers, blended",
+            "1 red bell pepper, diced",
+            "2 stock cubes",
+            "2 tablespoons vegetable oil",
+            "Salt to taste",
+          ],
+          instructions:
+            "Fry the onion in oil until soft, then add the blended pepper and fry briefly. Pour in the coconut milk and enough water to cook the rice, then bring to a boil. Add the parboiled rice, stock cubes and salt, stir once, then cover and cook on low heat until the rice is tender and the liquid is absorbed, about 25 minutes. Stir in the diced bell pepper towards the end for color and crunch.",
+        },
+        {
+          id: "local-egusi",
+          name: "Egusi Soup",
+          wikiSearch: "Egusi",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "2 cups ground egusi (melon seeds)",
+            "1/2 cup red palm oil",
+            "1 onion, chopped",
+            "2 cups chopped spinach or bitter leaf",
+            "500g assorted meat and fish",
+            "2 stock cubes",
+            "1 tablespoon ground crayfish",
+            "1-2 scotch bonnet peppers, blended",
+            "Salt to taste",
+          ],
+          instructions:
+            "Heat the palm oil and fry the onion briefly. Stir in the ground egusi and fry gently, stirring often, until it clumps and turns slightly golden. Add the blended pepper, crayfish and a little stock, then simmer for 10 minutes. Add the cooked assorted meat and fish along with their stock, and simmer for another 10-15 minutes. Stir in the chopped vegetable, season with stock cubes and salt, and simmer for a final 5 minutes.",
+        },
+        {
+          id: "local-ogbono",
+          name: "Ogbono Soup",
+          wikiSearch: "Ogbono soup",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "1 cup ground ogbono (wild mango seeds)",
+            "1/2 cup red palm oil",
+            "2 cups chopped spinach or ugu leaves",
+            "400g assorted meat and fish",
+            "2 stock cubes",
+            "1 tablespoon ground crayfish",
+            "1 scotch bonnet pepper, blended",
+            "Salt to taste",
+          ],
+          instructions:
+            "Heat the palm oil and stir in the ground ogbono, mixing quickly and constantly to build up its natural draw (stringiness). Add a little hot stock gradually while stirring. Add the blended pepper, crayfish and cooked meat and fish with their stock, and simmer for 10 minutes without over-stirring so the draw isn't broken down. Stir in the chopped vegetable, season with stock cubes and salt, and simmer for 5 more minutes.",
+        },
+        {
+          id: "local-bangasoup",
+          name: "Banga Soup",
+          wikiSearch: "Banga soup",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "4 cups fresh palm fruit extract (banga)",
+            "400g assorted fish and meat",
+            "1 onion, chopped",
+            "2 scotch bonnet peppers, blended",
+            "1 tablespoon banga spice blend",
+            "1 tablespoon ground crayfish",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Pour the palm fruit extract into a pot and bring to a boil, skimming off any foam. Add the onion, blended pepper, banga spice blend and crayfish, and simmer for 15-20 minutes until the oil starts to separate slightly. Add the meat and fish along with their stock, season with stock cubes and salt, and simmer for a further 15 minutes until the soup thickens.",
+        },
+        {
+          id: "local-afang",
+          name: "Afang Soup",
+          wikiSearch: "Afang soup",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "2 cups sliced afang leaves (or spinach as a substitute)",
+            "2 cups chopped waterleaf",
+            "1/2 cup red palm oil",
+            "400g assorted meat, fish and stockfish",
+            "1 tablespoon ground crayfish",
+            "1 scotch bonnet pepper",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Simmer the assorted meat, fish and stockfish together with a little water, the pepper and stock cubes until well cooked. Add the palm oil and chopped waterleaf, and simmer for a few minutes until the waterleaf softens and releases its water. Stir in the sliced afang leaves and crayfish, season with salt, and simmer for a final 5-8 minutes until everything is tender.",
+        },
+        {
+          id: "local-suya",
+          name: "Suya",
+          wikiSearch: "Suya",
+          category: "Grilled meat",
+          type: "Protein",
+          ingredients: [
+            "500g beef, thinly sliced",
+            "4 tablespoons roasted groundnut (peanut) powder",
+            "1 tablespoon paprika",
+            "1 teaspoon cayenne pepper",
+            "1 teaspoon ground ginger",
+            "1/2 teaspoon garlic powder",
+            "2 stock cubes, crushed",
+            "2 tablespoons vegetable oil",
+            "Sliced onions and tomatoes, to serve",
+          ],
+          instructions:
+            "Mix the groundnut powder, paprika, cayenne, ginger, garlic powder and crushed stock cubes together to make the suya spice blend (yaji). Thread the beef onto skewers, brush lightly with oil, then coat generously with the spice mix. Grill over hot coals or under a very hot grill, turning occasionally, until cooked through and slightly charred, about 10-15 minutes. Serve hot with sliced onions and tomatoes.",
+        },
+        {
+          id: "local-nkwobi",
+          name: "Nkwobi",
+          wikiSearch: "Nkwobi",
+          category: "Grilled meat",
+          type: "Protein",
+          ingredients: [
+            "1kg cow foot, cleaned and cut into pieces",
+            "1/2 cup palm oil, softened with potash",
+            "1 tablespoon ground crayfish",
+            "1-2 scotch bonnet peppers, blended",
+            "1 onion, sliced",
+            "1 stock cube",
+            "Sliced spring onions and utazi leaves, to garnish",
+          ],
+          instructions:
+            "Boil the cow foot with the onion and stock cube until very tender. Whisk the softened palm oil with a little of the cooking stock until it turns thick and pale (this is the traditional nkwobi sauce base). Stir in the crayfish, blended pepper and cooked cow foot, mixing until every piece is well coated. Garnish with sliced spring onions and utazi leaves before serving.",
+        },
+        {
+          id: "local-isiewu",
+          name: "Isi Ewu",
+          wikiSearch: "Isi ewu",
+          category: "Grilled meat",
+          type: "Protein",
+          ingredients: [
+            "1 goat head, cleaned and cut into pieces",
+            "1/2 cup palm oil, softened with potash",
+            "1 tablespoon ground crayfish",
+            "2 scotch bonnet peppers, blended",
+            "1 onion, sliced",
+            "1 stock cube",
+            "Sliced utazi leaves, to garnish",
+          ],
+          instructions:
+            "Boil the goat head pieces with the onion and stock cube until tender. Whisk the softened palm oil with a little cooking stock until thick and pale, then mix in the crayfish and blended pepper. Toss the cooked goat head pieces in this sauce until fully coated, and finish with sliced utazi leaves.",
+        },
+        {
+          id: "local-moimoi",
+          name: "Moi Moi",
+          wikiSearch: "Moin-moin",
+          category: "Bean pudding",
+          type: "Snack",
+          ingredients: [
+            "2 cups peeled black-eyed beans",
+            "1 red bell pepper",
+            "1 scotch bonnet pepper",
+            "1 onion",
+            "1/2 cup vegetable oil",
+            "2 eggs (optional)",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Blend the peeled beans with the pepper, scotch bonnet and onion, using as little water as possible, until smooth. Whisk in the oil, stock cubes, salt and eggs if using, until the mix is light and fluffy. Pour into small containers or wrapped leaves, and steam over boiling water for about 45-60 minutes, until firm and set in the middle.",
+        },
+        {
+          id: "local-akara",
+          name: "Akara",
+          wikiSearch: "Akara",
+          category: "Breakfast",
+          type: "Snack",
+          ingredients: [
+            "2 cups peeled black-eyed beans",
+            "1 onion",
+            "1 scotch bonnet pepper",
+            "Salt to taste",
+            "Vegetable oil, for frying",
+          ],
+          instructions:
+            "Blend the peeled beans with a little water, the onion, pepper and salt until smooth and airy - the batter should be thick enough to hold its shape. Whisk briefly to add air. Heat oil in a deep pan and drop spoonfuls of the batter in, frying in batches until golden brown and cooked through, turning once. Drain on paper towels and serve hot.",
+        },
+        {
+          id: "local-puffpuff",
+          name: "Puff-Puff",
+          wikiSearch: "Puff-puff (food)",
+          category: "Dessert & snack",
+          type: "Snack",
+          ingredients: [
+            "2 cups flour",
+            "1/4 cup sugar",
+            "1 teaspoon instant yeast",
+            "1/2 teaspoon nutmeg",
+            "1/4 teaspoon salt",
+            "1 1/4 cups warm water",
+            "Vegetable oil, for frying",
+          ],
+          instructions:
+            "Mix the flour, sugar, yeast, nutmeg and salt in a bowl. Gradually whisk in warm water until you have a smooth, stretchy batter, thicker than pancake batter. Cover and leave to rise in a warm place for about an hour, until bubbly and doubled in size. Heat oil in a deep pot, then scoop small portions of batter with a wet hand or spoon and drop into the hot oil. Fry until golden brown all over, turning occasionally, then drain on paper towels.",
+        },
+        {
+          id: "local-chinchin",
+          name: "Chin Chin",
+          wikiSearch: "Chin chin (snack)",
+          category: "Snack",
+          type: "Snack",
+          ingredients: [
+            "4 cups flour",
+            "1/2 cup sugar",
+            "1/2 cup margarine or butter",
+            "2 eggs",
+            "1/2 teaspoon nutmeg",
+            "1 teaspoon baking powder",
+            "1/2 cup milk",
+            "Vegetable oil, for frying",
+          ],
+          instructions:
+            "Rub the margarine into the flour, sugar, baking powder and nutmeg until it resembles breadcrumbs. Mix in the eggs and milk to form a firm, smooth dough. Roll the dough out and cut into small squares or strips. Fry in batches in moderately hot oil, stirring occasionally, until golden brown and crunchy all the way through. Drain on paper towels and cool completely before storing.",
+        },
+        {
+          id: "local-kilishi",
+          name: "Kilishi",
+          wikiSearch: "Kilishi",
+          category: "Dried meat snack",
+          type: "Snack",
+          ingredients: [
+            "500g beef, sliced very thin",
+            "1/2 cup roasted groundnut paste",
+            "1 tablespoon ground pepper blend",
+            "1 stock cube, crushed",
+            "1 teaspoon ground ginger",
+            "Salt to taste",
+          ],
+          instructions:
+            "Lay the thin beef slices out and dry them, traditionally in the sun or a low oven, until firm. Mix the groundnut paste with the pepper blend, crushed stock cube, ginger and salt to make a thick coating paste. Spread the paste over both sides of the dried meat and return it to dry further until the coating sets. Finish by briefly grilling or roasting until lightly charred at the edges.",
+        },
+        {
+          id: "local-poundedyam",
+          name: "Pounded Yam & Efo Riro",
+          wikiSearch: "Pounded yam",
+          category: "Swallow & stew",
+          type: "Swallow",
+          ingredients: [
+            "1 large yam tuber, peeled and cubed",
+            "4 cups chopped spinach or shredded greens",
+            "1/2 cup red palm oil",
+            "3 tomatoes and 2 peppers, blended",
+            "1 onion, chopped",
+            "300g assorted meat or fish",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Boil the yam in salted water until very soft, then pound or blend until smooth and stretchy to make the swallow. For the stew, heat palm oil and fry the onion, then add the blended tomato and pepper and fry until reduced. Add the cooked meat or fish with a little stock, season with stock cubes and salt, and simmer for 10 minutes. Stir in the chopped greens and cook for a further 3-5 minutes. Serve the stew alongside the pounded yam.",
+        },
+        {
+          id: "local-amala",
+          name: "Amala & Ewedu",
+          wikiSearch: "Amala (food)",
+          category: "Swallow & soup",
+          type: "Swallow",
+          ingredients: [
+            "2 cups yam flour (elubo)",
+            "3 cups hot water",
+            "2 cups chopped jute leaves (ewedu)",
+            "1 tablespoon ground crayfish",
+            "1 stock cube",
+            "Salt to taste",
+          ],
+          instructions:
+            "Stir the yam flour into hot water a little at a time, mixing briskly until smooth, stretchy and lump-free to make the amala. For the ewedu, blend or finely chop the jute leaves, then simmer with a little water, crayfish, stock cube and salt until it turns silky and slightly draw-y, a few minutes. Serve the amala with the ewedu and a stew or soup of choice on the side.",
+        },
+        {
+          id: "local-tuwo",
+          name: "Tuwo Shinkafa",
+          wikiSearch: "Tuwo shinkafa",
+          category: "Swallow",
+          type: "Swallow",
+          ingredients: [
+            "3 cups rice, cooked very soft",
+            "1 cup water (as needed)",
+            "Miyan kuka or any soup of choice, to serve",
+          ],
+          instructions:
+            "Cook the rice with extra water until very soft and mushy, well beyond normal cooking. While still hot, pound or mash the rice vigorously until smooth and stretchy, adding a splash of hot water if needed to help it come together. Shape into rounds and serve hot alongside a Northern-style soup such as miyan kuka.",
+        },
+        {
+          id: "local-asaro",
+          name: "Yam Porridge (Asaro)",
+          wikiSearch: "Yam porridge",
+          category: "One-pot",
+          type: "Swallow",
+          ingredients: [
+            "1 medium yam tuber, peeled and cubed",
+            "3 tomatoes and 2 peppers, blended",
+            "1/2 cup palm oil",
+            "1 onion, chopped",
+            "2 cups chopped spinach (optional)",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Fry the onion in palm oil briefly, then add the blended tomato and pepper and cook for a few minutes. Add the cubed yam along with enough water to just cover it, then season with stock cubes and salt. Cook until the yam is soft and starting to break down, mashing some of it lightly with a spoon to thicken the porridge. Stir in the chopped spinach at the end if using, and simmer for a couple more minutes.",
+        },
+        {
+          id: "local-zobo",
+          name: "Zobo Drink",
+          wikiSearch: "Zobo drink",
+          category: "Drink",
+          type: "Drink",
+          ingredients: [
+            "2 cups dried hibiscus (zobo) leaves",
+            "8 cups water",
+            "1 cucumber, chopped (optional)",
+            "1 orange, sliced (optional)",
+            "1 piece ginger, sliced",
+            "Sugar or honey, to taste",
+          ],
+          instructions:
+            "Rinse the dried hibiscus leaves, then boil in the water with the sliced ginger for 20-30 minutes until deeply colored. Strain out the leaves and ginger, and sweeten the liquid with sugar or honey to taste. Chill well, then serve over ice with chopped cucumber and orange slices for extra freshness.",
+        },
+        {
+          id: "local-kunu",
+          name: "Kunu Drink",
+          wikiSearch: "Kunu (drink)",
+          category: "Drink",
+          type: "Drink",
+          ingredients: [
+            "2 cups millet or guinea corn, soaked overnight",
+            "1 piece ginger",
+            "1/4 teaspoon cloves",
+            "6 cups water",
+            "Sugar, to taste",
+          ],
+          instructions:
+            "Drain the soaked grain and blend it with the ginger, cloves and a little water until smooth. Add more water and strain through a fine sieve or cloth to extract the milky liquid, discarding the solids. Cook part of the strained liquid over gentle heat, stirring, until it thickens slightly, then mix it back into the rest of the liquid to help it set. Sweeten to taste and chill before serving.",
+        },
+        {
+          id: "local-peppersoup",
+          name: "Nigerian Pepper Soup",
+          wikiSearch: "Pepper soup",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "500g goat meat or fish, cut into pieces",
+            "1 onion, chopped",
+            "1 tablespoon pepper soup spice blend",
+            "1-2 scotch bonnet peppers",
+            "2 stock cubes",
+            "Salt to taste",
+            "Fresh scent leaf or basil, to finish",
+          ],
+          instructions:
+            "Place the meat or fish in a pot with the onion, stock cubes and enough water to cover. Bring to a boil, then reduce heat and simmer until the meat is tender. Add the pepper soup spice blend and whole or crushed scotch bonnet peppers, and simmer for a further 10-15 minutes to let the flavors develop. Season with salt to taste, stir in fresh scent leaf just before serving, and serve hot.",
+        },
+        {
+          id: "local-bole",
+          name: "Bole (Roasted Plantain & Fish)",
+          wikiSearch: "Bole (food)",
+          category: "Street food",
+          type: "Snack",
+          ingredients: [
+            "3 ripe plantains, unpeeled",
+            "2 whole fish (mackerel or croaker), cleaned",
+            "1/4 cup palm oil",
+            "1 onion, blended",
+            "2 scotch bonnet peppers, blended",
+            "1 stock cube",
+            "Salt to taste",
+          ],
+          instructions:
+            "Roast the unpeeled plantains directly over hot coals or under a grill, turning occasionally, until the skin is charred and the inside is soft, about 20-25 minutes. Grill or fry the fish separately until cooked through. Mix the palm oil with the blended onion, pepper, stock cube and salt to make a sauce (locally called 'point and kill' sauce). Peel the roasted plantain, slice, and serve with the fish and sauce drizzled over or on the side.",
+        },
+        {
+          id: "local-ewaagoyin",
+          name: "Ewa Agoyin",
+          wikiSearch: "Ewa agoyin",
+          category: "Bean dish",
+          type: "Beans",
+          ingredients: [
+            "3 cups honey beans (or brown beans)",
+            "1 cup dried red chili peppers",
+            "1/2 cup palm oil",
+            "1 onion, chopped",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Boil the beans until very soft, then mash roughly with a spoon, leaving some texture. For the sauce, blend the dried peppers and onion. Heat the palm oil until it darkens slightly, then add the blended pepper mix and fry on low heat, stirring often, until it thickens and the oil separates, about 15-20 minutes. Season the sauce with stock cubes and salt, then spoon generously over the mashed beans to serve.",
+        },
+        {
+          id: "local-gizdodo",
+          name: "Gizdodo",
+          wikiSearch: "Gizzard",
+          category: "Party food",
+          type: "Protein",
+          ingredients: [
+            "500g chicken gizzards, cleaned and boiled",
+            "3 ripe plantains, diced and fried",
+            "3 tomatoes and 2 peppers, blended",
+            "1 onion, chopped",
+            "3 tablespoons vegetable oil",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Boil the gizzards with a little salt and a stock cube until tender, then slice and pan-fry briefly until lightly browned. Fry the diced plantain separately until golden, then set aside. In the same pan, fry the onion, then add the blended tomato and pepper and cook down into a thick stew. Stir the fried gizzard and plantain into the stew, season with the remaining stock cube and salt, and simmer briefly so the flavors combine.",
+        },
+        {
+          id: "local-pepperedsnail",
+          name: "Peppered Snail",
+          wikiSearch: "Achatina achatina",
+          category: "Party food",
+          type: "Protein",
+          ingredients: [
+            "12 giant African snails, cleaned",
+            "2 onions, sliced",
+            "3 scotch bonnet peppers, sliced",
+            "1 red bell pepper, sliced",
+            "3 tablespoons vegetable oil",
+            "1 stock cube",
+            "Salt to taste",
+          ],
+          instructions:
+            "Clean the snails thoroughly, removing the slime with salt and lime or alum, then boil until tender. Heat oil in a pan and lightly fry the sliced onions and peppers until just softened, keeping some bite. Add the boiled snails, stock cube and salt, and stir-fry everything together on high heat for a few minutes until well coated and slightly charred at the edges.",
+        },
+        {
+          id: "local-abacha",
+          name: "Abacha (African Salad)",
+          wikiSearch: "Abacha (food)",
+          category: "Salad",
+          type: "Salad",
+          ingredients: [
+            "3 cups dried shredded cassava (abacha)",
+            "1/4 cup palm oil (ugba oil), or potash-treated palm oil",
+            "1/2 cup ugba (fermented oil bean seed)",
+            "1 onion, sliced",
+            "1 tablespoon ground crayfish",
+            "1-2 scotch bonnet peppers, sliced",
+            "Garden eggs and utazi leaves, to serve",
+          ],
+          instructions:
+            "Soak the dried shredded cassava in warm water until softened and pliable, then drain well. Whisk the palm oil with a little water until it turns thick and yellow. Mix the softened cassava with the ugba, sliced onion, crayfish and pepper, then pour over the palm oil mixture and toss until evenly coated. Serve at room temperature with garden eggs and sliced utazi leaves on the side.",
+        },
+        {
+          id: "local-ukwa",
+          name: "Ukwa (Breadfruit Porridge)",
+          wikiSearch: "Treculia africana",
+          category: "Porridge",
+          type: "Swallow",
+          ingredients: [
+            "3 cups African breadfruit seeds (ukwa), soaked overnight",
+            "1/4 cup palm oil",
+            "1 onion, chopped",
+            "1 tablespoon ground crayfish",
+            "1-2 scotch bonnet peppers",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Drain the soaked breadfruit seeds and cook in plenty of water until very soft, topping up with hot water as needed - this can take an hour or more. Once soft, add the palm oil, chopped onion, crayfish, pepper, stock cubes and salt, and continue cooking, stirring occasionally, until it thickens into a soft porridge consistency.",
+        },
+        {
+          id: "local-ofeonugbu",
+          name: "Ofe Onugbu (Bitterleaf Soup)",
+          wikiSearch: "Bitterleaf soup",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "2 cups washed bitterleaf (to reduce bitterness)",
+            "1/2 cup ground cocoyam or achi, as thickener",
+            "1/2 cup palm oil",
+            "400g assorted meat, fish and stockfish",
+            "1 tablespoon ground crayfish",
+            "1 scotch bonnet pepper",
+            "2 stock cubes",
+          ],
+          instructions:
+            "Simmer the assorted meat, fish and stockfish with a little water, pepper and stock cubes until tender. Add the palm oil and the ground cocoyam or achi, stirring well to help thicken the soup. Stir in the washed bitterleaf and crayfish, and simmer for 10-15 minutes, stirring occasionally, until the soup thickens and the flavors meld.",
+        },
+        {
+          id: "local-efoelegusi",
+          name: "Efo Elegusi (Vegetable Egusi Soup)",
+          wikiSearch: "Egusi",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "1 1/2 cups ground egusi",
+            "3 cups chopped spinach or ugu leaves",
+            "1/2 cup red palm oil",
+            "400g assorted meat and fish",
+            "1 tablespoon ground crayfish",
+            "1-2 scotch bonnet peppers, blended",
+            "2 stock cubes",
+          ],
+          instructions:
+            "Heat the palm oil and fry the ground egusi gently until it clumps and turns slightly golden. Add the blended pepper, crayfish and a little stock, then simmer for 10 minutes. Stir in the cooked meat and fish with their stock, season with stock cubes, and simmer for another 10 minutes. Fold in the chopped leafy greens and cook for a final 5 minutes until wilted but still vibrant.",
+        },
+        {
+          id: "local-okrasoup",
+          name: "Okra Soup",
+          wikiSearch: "Okra soup",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "3 cups sliced or grated okra",
+            "1/2 cup palm oil",
+            "400g assorted meat, fish and stockfish",
+            "1 tablespoon ground crayfish",
+            "1-2 scotch bonnet peppers, blended",
+            "2 stock cubes",
+            "Chopped spinach (optional)",
+          ],
+          instructions:
+            "Simmer the assorted meat, fish and stockfish with a little water, pepper and stock cubes until tender. Add the palm oil and let it heat through, then stir in the sliced or grated okra. Cook briefly, stirring, until the okra softens and the soup takes on its characteristic light draw. Stir in the crayfish and chopped spinach if using, and simmer for 3-5 more minutes.",
+        },
+        {
+          id: "local-meatpie",
+          name: "Nigerian Meat Pie",
+          wikiSearch: "Nigerian meat pie",
+          category: "Pastry",
+          type: "Pastry",
+          ingredients: [
+            "3 cups flour",
+            "1/2 cup cold butter, cubed",
+            "1 teaspoon baking powder",
+            "200g minced meat",
+            "1 large potato and 1 carrot, diced",
+            "1 onion, chopped",
+            "2 stock cubes",
+            "1 egg, beaten (for glazing)",
+          ],
+          instructions:
+            "Rub the cold butter into the flour and baking powder until crumbly, then bring together with cold water into a firm dough. Chill while you make the filling: cook the minced meat with the diced potato, carrot, onion and stock cubes until the vegetables are tender and the mixture is fairly dry. Roll out the dough, cut into circles, fill with the meat mixture, fold over and seal the edges. Brush with beaten egg and bake at 190C (375F) until golden brown, about 25-30 minutes.",
+        },
+        {
+          id: "local-sausageroll",
+          name: "Nigerian Sausage Roll",
+          wikiSearch: "Sausage roll",
+          category: "Pastry",
+          type: "Pastry",
+          ingredients: [
+            "500g puff pastry",
+            "300g sausage meat or minced beef, seasoned",
+            "1 onion, finely chopped",
+            "1 stock cube",
+            "1 egg, beaten (for glazing)",
+          ],
+          instructions:
+            "Mix the sausage meat with the chopped onion and stock cube. Roll out the puff pastry into a rectangle, spoon the meat mixture in a line along one edge, then roll the pastry over to enclose it, sealing the edge with a little water. Cut into individual rolls, brush with beaten egg, and bake at 200C (400F) until the pastry is puffed and golden, about 20-25 minutes.",
+        },
+        {
+          id: "local-smallchops",
+          name: "Small Chops Platter",
+          wikiSearch: "Small chops",
+          category: "Party food",
+          type: "Snack",
+          ingredients: [
+            "8 pieces puff-puff",
+            "8 spring rolls",
+            "8 samosas",
+            "8 pieces chicken or beef suya skewers",
+            "Fried plantain chips, to fill out the platter",
+          ],
+          instructions:
+            "Prepare or fry each item separately according to its own method, timing them so everything finishes hot around the same time. Arrange the puff-puff, spring rolls, samosas, suya skewers and plantain chips together on a large platter. Serve with a side of pepper sauce or ketchup for dipping - this is the classic Nigerian party starter spread.",
+        },
+        {
+          id: "local-dodo",
+          name: "Dodo (Fried Plantain)",
+          wikiSearch: "Dodo (food)",
+          category: "Side dish",
+          type: "Snack",
+          ingredients: [
+            "4 ripe plantains, sliced diagonally",
+            "Vegetable oil, for frying",
+            "A pinch of salt",
+          ],
+          instructions:
+            "Heat oil in a frying pan over medium heat. Fry the plantain slices in batches, turning once, until golden brown on both sides and caramelized at the edges, about 3-4 minutes per side. Drain on paper towels and sprinkle lightly with salt while still hot. Serve as a side with rice, beans or a stew.",
+        },
+        {
+          id: "local-friedyam",
+          name: "Fried Yam & Egg Sauce",
+          wikiSearch: "Yam (vegetable)",
+          category: "Breakfast",
+          type: "Snack",
+          ingredients: [
+            "1 medium yam tuber, peeled and sliced",
+            "Vegetable oil, for frying",
+            "4 eggs, beaten",
+            "1 tomato and 1 pepper, diced",
+            "1 onion, chopped",
+            "1 stock cube",
+            "Salt to taste",
+          ],
+          instructions:
+            "Boil the yam slices in salted water until just tender, then drain and pat dry. Shallow fry the yam slices until golden and slightly crisp on the outside. For the egg sauce, fry the onion, tomato and pepper briefly, then pour in the beaten eggs and stir gently until just set, seasoning with the stock cube and salt. Serve the fried yam alongside the egg sauce.",
+        },
+        {
+          id: "local-chapman",
+          name: "Chapman",
+          wikiSearch: "Chapman (cocktail)",
+          category: "Drink",
+          type: "Drink",
+          ingredients: [
+            "1 cup Fanta or grenadine syrup",
+            "1 cup Sprite or 7-Up",
+            "1/4 cup blackcurrant syrup",
+            "Juice of 1 lime",
+            "Cucumber and orange slices, to garnish",
+            "Ice, to serve",
+          ],
+          instructions:
+            "Fill a large jug or individual glasses with ice. Combine the Fanta, Sprite, blackcurrant syrup and lime juice, stirring well to mix. Garnish generously with cucumber and orange slices, and serve chilled - this is Nigeria's well-known non-alcoholic party drink.",
+        },
+        {
+          id: "local-coleslaw",
+          name: "Nigerian Coleslaw",
+          wikiSearch: "Coleslaw",
+          category: "Salad",
+          type: "Salad",
+          ingredients: [
+            "1/2 head cabbage, shredded",
+            "2 carrots, grated",
+            "1 cup sweet corn",
+            "1 cup mayonnaise",
+            "2 tablespoons salad cream",
+            "1 tablespoon sugar",
+            "Salt and pepper to taste",
+          ],
+          instructions:
+            "Combine the shredded cabbage, grated carrots and sweet corn in a large bowl. In a separate bowl, whisk together the mayonnaise, salad cream, sugar, salt and pepper. Pour the dressing over the vegetables and toss well to coat evenly. Chill for at least 30 minutes before serving - a classic side at Nigerian parties, often served with jollof rice.",
+        },
+        {
+          id: "local-fishermansoup",
+          name: "Fisherman Soup",
+          wikiSearch: "Fisherman soup",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "500g assorted fresh fish and seafood (catfish, prawns, periwinkle)",
+            "1/2 cup palm oil",
+            "1 onion, chopped",
+            "2 scotch bonnet peppers, blended",
+            "1 tablespoon ground crayfish",
+            "2 stock cubes",
+            "Uziza or scent leaves, to finish",
+          ],
+          instructions:
+            "Heat the palm oil and fry the onion until soft. Add the blended pepper and fry for a few minutes, then pour in enough water or stock to make a light soup base and bring to a boil. Add the assorted fresh fish and seafood, crayfish and stock cubes, and simmer gently until the fish is just cooked through, about 10-15 minutes. Finish with uziza or scent leaves for aroma just before serving.",
+        },
+        {
+          id: "local-groundnutsoup",
+          name: "Groundnut Soup",
+          wikiSearch: "Groundnut soup",
+          category: "Soup",
+          type: "Soup",
+          ingredients: [
+            "1 1/2 cups smooth groundnut (peanut) paste",
+            "400g assorted meat and fish",
+            "1 onion, chopped",
+            "1-2 scotch bonnet peppers, blended",
+            "1 tablespoon ground crayfish",
+            "2 stock cubes",
+            "Chopped spinach (optional)",
+          ],
+          instructions:
+            "Simmer the assorted meat and fish with the onion, pepper and stock cubes until tender. Mix the groundnut paste with a little of the hot stock to loosen it, then stir it into the pot. Simmer gently, stirring often to prevent sticking, until the soup thickens and the oil from the groundnut rises to the top, about 15-20 minutes. Stir in crayfish and chopped spinach if using, and simmer a few more minutes.",
+        },
+        {
+          id: "local-beansporridge",
+          name: "Beans & Plantain Porridge",
+          wikiSearch: "Beans porridge",
+          category: "Porridge",
+          type: "Beans",
+          ingredients: [
+            "2 cups brown or honey beans",
+            "2 ripe plantains, sliced",
+            "1/2 cup palm oil",
+            "1 onion, chopped",
+            "2 scotch bonnet peppers, blended",
+            "2 stock cubes",
+            "Salt to taste",
+          ],
+          instructions:
+            "Boil the beans until soft, topping up with hot water as needed. Add the palm oil, chopped onion, blended pepper, stock cubes and salt, and continue cooking until the beans break down slightly and thicken the pot. Stir in the sliced plantain and cook for a further 8-10 minutes until the plantain is soft and the porridge has thickened nicely.",
+        },
+      ];
+      async function fetchWikiImage(searchTerm) {
+        try {
+          const searchRes = await fetch(
+            "https://en.wikipedia.org/w/api.php?action=opensearch&search=" +
+              encodeURIComponent(searchTerm) +
+              "&limit=1&namespace=0&format=json&origin=*",
+          );
+          const searchData = await searchRes.json();
+          const title = searchData && searchData[1] && searchData[1][0];
+          if (!title) return null;
+          const summaryRes = await fetch(
+            "https://en.wikipedia.org/api/rest_v1/page/summary/" +
+              encodeURIComponent(title),
+          );
+          const summaryData = await summaryRes.json();
+          return (
+            (summaryData.thumbnail && summaryData.thumbnail.source) ||
+            (summaryData.originalimage && summaryData.originalimage.source) ||
+            null
+          );
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function localDishCardHTML(dish, imgUrl) {
+        return `
+    <div class="thumb-wrap">
+      ${imgUrl ? `<img src="${imgUrl}" alt="${dish.name}" />` : `<div class="skeleton" style="width:100%;height:130px;"></div>`}
+      <span class="tag local-badge">Nigerian</span>
+    </div>
+    <div class="recipe-card-body">
+      <h3>${dish.name}</h3>
+      <p>${dish.ingredients.slice(0, 3).join(", ")}...</p>
+    </div>
+  `;
+      }
+
+      let currentLocalFilter = "All";
+
+      function renderLocalGrid() {
+        const grid = document.getElementById("grid-local");
+        const dishes =
+          currentLocalFilter === "All"
+            ? NIGERIAN_DISHES
+            : NIGERIAN_DISHES.filter((d) => d.type === currentLocalFilter);
+        grid.innerHTML = "";
+        dishes.forEach((dish) => {
+          const card = document.createElement("div");
+          card.className = "recipe-card";
+          card.innerHTML = localDishCardHTML(dish, dish._imgUrl || null);
+          card.addEventListener("click", () => openLocalRecipe(dish.id));
+          grid.appendChild(card);
+        });
+      }
+
+      function setupLocalFilters() {
+        const filterEl = document.getElementById("local-type-filter");
+        if (filterEl.dataset.built) return;
+        filterEl.dataset.built = "true";
+        const types = ["All", ...NIGERIAN_TYPES];
+        types.forEach((type) => {
+          const chip = document.createElement("div");
+          chip.className = "type-chip" + (type === "All" ? " active" : "");
+          chip.textContent = type;
+          chip.addEventListener("click", () => {
+            currentLocalFilter = type;
+            trackEvent("filter_select", { page: "local", filter: type });
+            document
+              .querySelectorAll("#local-type-filter .type-chip")
+              .forEach((c) => c.classList.remove("active"));
+            chip.classList.add("active");
+            renderLocalGrid();
+          });
+          filterEl.appendChild(chip);
+        });
+      }
+
+      async function loadLocalPage() {
+        setupLocalFilters();
+        renderLocalGrid();
+        NIGERIAN_DISHES.forEach(async (dish) => {
+          const imgUrl = await fetchWikiImage(dish.wikiSearch);
+          if (imgUrl) {
+            dish._imgUrl = imgUrl;
+            renderLocalGrid();
+          }
+        });
+      }
+
+      function buildFindItLinks(dishName, isLocal) {
+        const q = encodeURIComponent(dishName);
+        const restaurantUrl =
+          "https://www.google.com/maps/search/" + q + "+restaurant";
+        const ingredientsUrl =
+          "https://www.google.com/search?tbm=shop&q=" + q + "+ingredients";
+        const localExtra = isLocal
+          ? `<a class="find-it-btn" href="https://www.google.com/search?q=${q}+near+me+delivery" target="_blank" rel="noopener">Order for delivery</a>`
+          : "";
+        return `
+    <a class="find-it-btn" href="${restaurantUrl}" target="_blank" rel="noopener">Find restaurants nearby</a>
+    <a class="find-it-btn" href="${ingredientsUrl}" target="_blank" rel="noopener">Shop ingredients</a>
+    ${localExtra}
+  `;
+      }
+
+      async function openLocalRecipe(id) {
+        const dish = NIGERIAN_DISHES.find((d) => d.id === id);
+        if (!dish) return;
+        currentModalDish = { name: dish.name, isLocal: true };
+        trackEvent("recipe_open", { dish: dish.name, source: "local" });
+        document.getElementById("modal-img").src = dish._imgUrl || "";
+        document.getElementById("modal-img").alt = dish.name;
+        document.getElementById("modal-title").textContent = dish.name;
+        document.getElementById("modal-meta").textContent =
+          "Nigerian \u00b7 " + dish.category;
+        const ul = document.getElementById("modal-ingredients");
+        ul.innerHTML = "";
+        dish.ingredients.forEach((ing) => {
+          const li = document.createElement("li");
+          li.textContent = ing;
+          ul.appendChild(li);
+        });
+        document.getElementById("modal-instructions").textContent =
+          dish.instructions;
+        document.getElementById("modal-find-it").innerHTML = buildFindItLinks(
+          dish.name,
+          true,
+        );
+        document.getElementById("modal-overlay").classList.add("show");
+        if (!dish._imgUrl) {
+          const imgUrl = await fetchWikiImage(dish.wikiSearch);
+          if (imgUrl) {
+            dish._imgUrl = imgUrl;
+            document.getElementById("modal-img").src = imgUrl;
+          }
+        }
+      }
+
+
+      function getIngredientPreview(meal, count) {
+        const items = [];
+        for (let i = 1; i <= 20; i++) {
+          const ing = meal["strIngredient" + i];
+          if (ing && ing.trim()) items.push(ing.trim());
+          if (items.length >= count) break;
+        }
+        return items.join(", ");
+      }
+
+      function skeletonRow(gridEl, count) {
+        gridEl.innerHTML = "";
+        for (let i = 0; i < count; i++) {
+          const d = document.createElement("div");
+          d.className = "skeleton skel-card";
+          gridEl.appendChild(d);
+        }
+      }
+
+      function cardHTML(meal) {
+        const preview = getIngredientPreview(meal, 3);
+        return `
+    <div class="thumb-wrap">
+      <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+      <span class="tag">${meal.strArea || "Recipe"}</span>
+    </div>
+    <div class="recipe-card-body">
+      <h3>${meal.strMeal}</h3>
+      <p>${preview ? preview + "..." : "Tap for the recipe"}</p>
+    </div>
+  `;
+      }
+
+      function renderRow(gridEl, meals) {
+        gridEl.innerHTML = "";
+        meals.forEach((meal) => {
+          const card = document.createElement("div");
+          card.className = "recipe-card";
+          card.innerHTML = cardHTML(meal);
+          card.addEventListener("click", () => openRecipe(meal.idMeal));
+          gridEl.appendChild(card);
+        });
+      }
+
+      async function loadCategoryRow(gridEl, cat, count) {
+        skeletonRow(gridEl, count);
+        try {
+          const res = await fetch(
+            API + "filter.php?c=" + encodeURIComponent(cat),
+          );
+          const data = await res.json();
+          if (!data.meals) {
+            gridEl.innerHTML =
+              '<p style="color:var(--plum-soft);">No recipes found.</p>';
+            return;
+          }
+          const picks = data.meals
+            .sort(() => 0.5 - Math.random())
+            .slice(0, count);
+          const detailed = await Promise.all(
+            picks.map(async (p) => {
+              try {
+                const r = await fetch(API + "lookup.php?i=" + p.idMeal);
+                const d = await r.json();
+                return d.meals[0];
+              } catch (e) {
+                return p;
+              }
+            }),
+          );
+          renderRow(gridEl, detailed);
+        } catch (e) {
+          gridEl.innerHTML =
+            '<p style="color:var(--plum-soft);">Could not load recipes right now.</p>';
+        }
+      }
+
+      async function loadHeroCollage() {
+        const ids = ["hc-1", "hc-2", "hc-3", "hc-4"];
+        for (const id of ids) {
+          try {
+            const res = await fetch(API + "random.php");
+            const data = await res.json();
+            const img = document.getElementById(id);
+            img.src = data.meals[0].strMealThumb;
+            img.alt = data.meals[0].strMeal;
+            img.classList.remove("skeleton");
+          } catch (e) {}
+        }
+      }
+
+      async function doSearch(term) {
+        const section = document.getElementById("search-results-section");
+        const grid = document.getElementById("search-grid");
+        if (!term.trim()) {
+          section.style.display = "none";
+          return;
+        }
+        trackEvent("search", { term: term });
+        document.getElementById("search-results-title").innerHTML =
+          '<span class="section-dot" style="background:var(--raspberry)"></span>Search results';
+        section.style.display = "block";
+        skeletonRow(grid, 4);
+        try {
+          const res = await fetch(
+            API + "search.php?s=" + encodeURIComponent(term),
+          );
+          const data = await res.json();
+          if (!data.meals) {
+            grid.innerHTML =
+              '<p style="color:var(--plum-soft);">No recipes found for "' +
+              term +
+              '". Try something else.</p>';
+            return;
+          }
+          renderRow(grid, data.meals.slice(0, 8));
+        } catch (e) {
+          grid.innerHTML =
+            '<p style="color:var(--plum-soft);">Could not load recipes right now.</p>';
+        }
+      }
+
+      async function rollSurprise() {
+        trackEvent("surprise_me_click", {});
+        const card = document.getElementById("surprise-card");
+        const viewBtn = document.getElementById("surprise-view-btn");
+        card.innerHTML =
+          '<p style="color:var(--plum-soft); font-size:14px;">Rolling the dice...</p>';
+        viewBtn.style.display = "none";
+        try {
+          const res = await fetch(API + "random.php");
+          const data = await res.json();
+          const meal = data.meals[0];
+          currentSurpriseId = meal.idMeal;
+          const preview = getIngredientPreview(meal, 4);
+          card.innerHTML = `
+      <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+      <h3>${meal.strMeal}</h3>
+      <p class="meta">${meal.strArea || ""}${meal.strCategory ? " · " + meal.strCategory : ""}</p>
+      <p class="ing-line">${preview}...</p>
+    `;
+          viewBtn.style.display = "inline-block";
+        } catch (e) {
+          card.innerHTML =
+            '<p style="color:var(--plum-soft); font-size:14px;">Could not load a recipe right now. Try again.</p>';
+        }
+      }
+
+      async function openRecipe(id) {
+        try {
+          const res = await fetch(API + "lookup.php?i=" + id);
+          const data = await res.json();
+          const meal = data.meals[0];
+          currentModalDish = { name: meal.strMeal, isLocal: false };
+          trackEvent("recipe_open", {
+            dish: meal.strMeal,
+            source: "international",
+          });
+          document.getElementById("modal-img").src = meal.strMealThumb;
+          document.getElementById("modal-img").alt = meal.strMeal;
+          document.getElementById("modal-title").textContent = meal.strMeal;
+          document.getElementById("modal-meta").textContent =
+            (meal.strArea || "") +
+            (meal.strCategory ? " · " + meal.strCategory : "");
+          const ul = document.getElementById("modal-ingredients");
+          ul.innerHTML = "";
+          for (let i = 1; i <= 20; i++) {
+            const ing = meal["strIngredient" + i];
+            const measure = meal["strMeasure" + i];
+            if (ing && ing.trim()) {
+              const li = document.createElement("li");
+              li.textContent =
+                (measure && measure.trim() ? measure.trim() + " " : "") +
+                ing.trim();
+              ul.appendChild(li);
+            }
+          }
+          document.getElementById("modal-instructions").textContent =
+            meal.strInstructions;
+          document.getElementById("modal-find-it").innerHTML =
+            buildFindItLinks(meal.strMeal, false);
+          document.getElementById("modal-overlay").classList.add("show");
+        } catch (e) {}
+      }
+
+      function showPage(key) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document.getElementById("page-" + key).classList.add("active");
+        document
+          .querySelectorAll("nav.links a[data-page]")
+          .forEach((a) => a.classList.remove("active"));
+        const navLink = document.querySelector(
+          'nav.links a[data-page="' + key + '"]',
+        );
+        if (navLink) navLink.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "instant" });
+        if (typeof gtag === "function") {
+          gtag("event", "page_view", { page_title: key, page_path: "/" + key });
+        }
+
+        if (!loadedPages[key]) {
+          loadedPages[key] = true;
+          if (key === "home") {
+            loadHeroCollage();
+            loadCategoryRow(
+              document.getElementById("grid-home-preview"),
+              "Dessert",
+              4,
+            );
+          } else if (key === "local") {
+            loadLocalPage();
+          } else if (key === "featured") {
+            renderFeaturedPage();
+          } else if (key === "meals") {
+            loadCategoryRow(
+              document.getElementById("grid-breakfast"),
+              "Breakfast",
+              4,
+            );
+            loadCategoryRow(
+              document.getElementById("grid-lunch"),
+              "Chicken",
+              4,
+            );
+            loadCategoryRow(document.getElementById("grid-dinner"), "Beef", 4);
+          } else if (CAT_MAP[key]) {
+            loadCategoryRow(
+              document.getElementById("grid-" + key),
+              CAT_MAP[key],
+              8,
+            );
+          }
+        }
+      }
+
+      document.querySelectorAll("[data-page]").forEach((el) => {
+        el.addEventListener("click", () =>
+          showPage(el.getAttribute("data-page")),
+        );
+      });
+
+      document
+        .getElementById("search-btn")
+        .addEventListener("click", () =>
+          doSearch(document.getElementById("search-input").value),
+        );
+      document
+        .getElementById("search-input")
+        .addEventListener("keydown", (e) => {
+          if (e.key === "Enter") doSearch(e.target.value);
+        });
+      document
+        .getElementById("surprise-roll-btn")
+        .addEventListener("click", rollSurprise);
+      document
+        .getElementById("surprise-view-btn")
+        .addEventListener("click", () => {
+          if (currentSurpriseId) openRecipe(currentSurpriseId);
+        });
+      document
+        .getElementById("modal-close")
+        .addEventListener("click", () =>
+          document.getElementById("modal-overlay").classList.remove("show"),
+        );
+      document
+        .getElementById("modal-overlay")
+        .addEventListener("click", (e) => {
+          if (e.target.id === "modal-overlay")
+            e.target.classList.remove("show");
+        });
+      document
+        .getElementById("order-now-btn")
+        .addEventListener("click", openOrderFlow);
+      document
+        .getElementById("order-modal-close")
+        .addEventListener("click", () =>
+          document.getElementById("order-overlay").classList.remove("show"),
+        );
+      document
+        .getElementById("order-overlay")
+        .addEventListener("click", (e) => {
+          if (e.target.id === "order-overlay")
+            e.target.classList.remove("show");
+        });
+
+      // ---- RESTAURANT DIRECTORY ----
+      // Empty by default - there's no free public directory of Nigerian
+      // restaurants with ratings + WhatsApp numbers, so this list is meant
+      // to be filled in by hand as real restaurant partners sign up.
+      // Add entries in exactly this shape:
+      //
+      // {
+      //   id: "unique-id",
+      //   name: "Restaurant Name",
+      //   city: "Lagos",                 // must match one of NIGERIAN_CITIES
+      //   rating: 4.5,                    // 0 to 5
+      //   whatsapp: "2348012345678",      // international format, no + or spaces
+      //   dishes: ["jollof", "suya"],     // lowercase keywords this place serves
+      //   featured: false                 // true = shown on the Featured page
+      // }
+      const RESTAURANTS = [];
+
+      const NIGERIAN_CITIES = [
+        "Lagos",
+        "Abuja",
+        "Port Harcourt",
+        "Ibadan",
+        "Kano",
+        "Enugu",
+        "Other",
+      ];
+
+      let currentModalDish = null; // { name, isLocal }
+
+      async function detectCity() {
+        return new Promise((resolve) => {
+          if (!navigator.geolocation) {
+            resolve(null);
+            return;
+          }
+          navigator.geolocation.getCurrentPosition(
+            async (pos) => {
+              try {
+                const res = await fetch(
+                  "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
+                    pos.coords.latitude +
+                    "&lon=" +
+                    pos.coords.longitude,
+                );
+                const data = await res.json();
+                const addr = data.address || {};
+                const city =
+                  addr.city || addr.town || addr.state || addr.county || null;
+                resolve(city);
+              } catch (e) {
+                resolve(null);
+              }
+            },
+            () => resolve(null),
+            { timeout: 6000 },
+          );
+        });
+      }
+
+      function starString(rating) {
+        const full = Math.round(rating);
+        return "★".repeat(full) + "☆".repeat(5 - full);
+      }
+
+      function whatsappLink(number, dishName) {
+        const text = encodeURIComponent(
+          "Hi! I'd like to order " + dishName + " - is it available?",
+        );
+        return "https://wa.me/" + number + "?text=" + text;
+      }
+
+      function restaurantCardHTML(r) {
+        return `
+    <div class="restaurant-card ${r.featured ? "featured-card" : ""}">
+      <div class="restaurant-info">
+        ${r.featured ? `<span class="featured-tag">Featured</span><br/>` : ""}
+        <h3>${r.name}</h3>
+        <p class="r-meta">${r.city} · <span class="rating-stars">${starString(r.rating)}</span> ${r.rating.toFixed(1)}</p>
+      </div>
+      <a class="whatsapp-btn" href="${whatsappLink(r.whatsapp, currentModalDish ? currentModalDish.name : "")}" target="_blank" rel="noopener" onclick="trackEvent('whatsapp_click', {restaurant: '${r.name}'})">
+        Chat on WhatsApp
+      </a>
+    </div>
+  `;
+      }
+
+      function renderOrderResults(city) {
+        const dishName = currentModalDish ? currentModalDish.name : "";
+        const dishLower = dishName.toLowerCase();
+        let matches = RESTAURANTS.filter((r) => {
+          const cityOk = !city || r.city === city;
+          const dishOk =
+            r.dishes.length === 0 ||
+            r.dishes.some((d) => dishLower.includes(d.toLowerCase()));
+          return cityOk && dishOk;
+        }).sort((a, b) => b.rating - a.rating);
+
+        const listEl = document.getElementById("order-restaurant-list");
+        const statusEl = document.getElementById("order-status-msg");
+
+        if (matches.length === 0) {
+          statusEl.textContent = city
+            ? "No partner restaurants in " + city + " yet for this dish."
+            : "No partner restaurants listed yet.";
+          listEl.innerHTML = `
+      <div class="empty-state">
+        <p style="margin-bottom:14px;">We don't have a restaurant partner for this dish yet — but here are some quick ways to find it nearby.</p>
+        <div class="find-it-row" style="justify-content:center;">${buildFindItLinks(dishName, !!(currentModalDish && currentModalDish.isLocal))}</div>
+      </div>
+    `;
+        } else {
+          statusEl.textContent =
+            "Showing " + matches.length + " place(s), best rated first:";
+          listEl.innerHTML = matches.map(restaurantCardHTML).join("");
+        }
+      }
+
+      async function openOrderFlow() {
+        if (!currentModalDish) return;
+        trackEvent("order_now_click", { dish: currentModalDish.name });
+        document.getElementById("order-dish-title").textContent =
+          "Where to order " + currentModalDish.name;
+        document.getElementById("order-city-picker").style.display = "none";
+        document.getElementById("order-status-msg").textContent =
+          "Finding restaurants near you...";
+        document.getElementById("order-restaurant-list").innerHTML = "";
+        document.getElementById("order-overlay").classList.add("show");
+
+        const city = await detectCity();
+        const matchedCity = NIGERIAN_CITIES.find(
+          (c) => city && city.toLowerCase().includes(c.toLowerCase()),
+        );
+
+        if (matchedCity) {
+          renderOrderResults(matchedCity);
+        } else {
+          document.getElementById("order-status-msg").textContent =
+            "Pick your city to see nearby options:";
+          const picker = document.getElementById("order-city-picker");
+          const chipsEl = document.getElementById("order-city-chips");
+          picker.style.display = "block";
+          chipsEl.innerHTML = "";
+          NIGERIAN_CITIES.forEach((c) => {
+            const chip = document.createElement("div");
+            chip.className = "cat-chip";
+            chip.textContent = c;
+            chip.addEventListener("click", () => renderOrderResults(c));
+            chipsEl.appendChild(chip);
+          });
+          renderOrderResults(null);
+        }
+      }
+
+      function renderFeaturedPage() {
+        const featured = RESTAURANTS.filter((r) => r.featured);
+        const listEl = document.getElementById("featured-list");
+        if (featured.length === 0) {
+          listEl.innerHTML = `
+      <div class="empty-state">
+        <h3 style="margin-bottom:8px;">No featured restaurants yet</h3>
+        <p>Spots are open! Restaurants and vendors can partner with Yummzville to be featured here and in the "Order Now" recommendations.</p>
+      </div>
+    `;
+        } else {
+          listEl.innerHTML = featured
+            .sort((a, b) => b.rating - a.rating)
+            .map(restaurantCardHTML)
+            .join("");
+        }
+      }
+
+      // ---- ANALYTICS ----
+      // Connected to your real GA4 Measurement ID (G-7GTZ07TK4W).
+      function trackEvent(name, params) {
+        if (typeof gtag === "function") {
+          gtag("event", name, params || {});
+        }
+      }
+
+      showPage("home");
+    </script>
+  </body>
+</html>
