@@ -12,34 +12,22 @@
 
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn link previews) -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Yummzville - Nigerian & International Recipes"
-    />
+    <meta property="og:title" content="Yummzville - Nigerian & International Recipes" />
     <meta
       property="og:description"
       content="Discover a world of delicious recipes with Yummzville. Search for your favourite dishes, explore new flavours, and find the perfect recipe for every craving."
     />
     <meta property="og:url" content="https://yummzville-01.vercel.app/" />
-    <meta
-      property="og:image"
-      content="https://yummzville-01.vercel.app/og-image.png"
-    />
+    <meta property="og:image" content="https://yummzville-01.vercel.app/og-image.png" />
 
     <!-- Twitter/X card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Yummzville - Nigerian & International Recipes"
-    />
+    <meta name="twitter:title" content="Yummzville - Nigerian & International Recipes" />
     <meta
       name="twitter:description"
       content="Discover a world of delicious recipes with Yummzville. Search for your favourite dishes, explore new flavours, and find the perfect recipe for every craving."
     />
-    <meta
-      name="twitter:image"
-      content="https://yummzville-01.vercel.app/og-image.png"
-    />
+    <meta name="twitter:image" content="https://yummzville-01.vercel.app/og-image.png" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -133,6 +121,7 @@
         color: var(--coral-dark);
         flex-shrink: 0;
         cursor: pointer;
+        order: 1;
       }
       .logo-badge {
         width: 34px;
@@ -154,6 +143,7 @@
         overflow-x: auto;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        order: 2;
       }
       nav.links::-webkit-scrollbar {
         display: none;
@@ -701,16 +691,17 @@
         display: flex;
         align-items: center;
         gap: 6px;
-        padding: 6px 12px;
+        padding: 8px 14px;
         border-radius: 999px;
         border: 2px solid var(--border);
         background: var(--card);
         font-family: "Baloo 2";
         font-weight: 700;
-        font-size: 12px;
+        font-size: 13px;
         cursor: pointer;
         color: var(--plum-soft);
         flex-shrink: 0;
+        order: 3;
       }
       .lang-toggle:hover {
         border-color: var(--coral);
@@ -812,6 +803,7 @@
         font-size: 13px;
       }
 
+
       @media (max-width: 860px) {
         .hero-grid {
           grid-template-columns: 1fr;
@@ -825,12 +817,34 @@
         .about-card {
           grid-template-columns: 1fr;
         }
+        .wrap.nav {
+          flex-wrap: wrap;
+          row-gap: 10px;
+        }
+        .lang-toggle {
+          order: 2;
+        }
         nav.links {
-          gap: 2px;
-          font-size: 13px;
+          order: 3;
+          width: 100%;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          gap: 8px;
+          padding-bottom: 2px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
         }
         nav.links a {
-          padding: 8px 10px;
+          flex-shrink: 0;
+          padding: 8px 16px;
+          border-radius: 999px;
+          border: 2px solid var(--border);
+          font-size: 13px;
+        }
+        nav.links a.active {
+          background: var(--plum);
+          border-color: var(--plum);
+          color: white;
         }
       }
     </style>
@@ -842,7 +856,15 @@
           <div class="logo-badge">Y</div>
           Yummzville🍴
         </div>
-        <nav class="links">
+        <button
+          class="lang-toggle"
+          id="lang-toggle-btn"
+          title="Switch language"
+          aria-label="Switch language"
+        >
+          🇬🇧 English
+        </button>
+        <nav class="links" id="nav-links">
           <a data-page="home" class="active">Home</a>
           <a data-page="local">Naija Kitchen</a>
           <a data-page="dessert">Dessert</a>
@@ -854,7 +876,6 @@
           <a data-page="contact">Contact</a>
           <a data-page="about">About</a>
         </nav>
-        <button class="lang-toggle" id="lang-toggle-btn">🇳🇬 Pidgin</button>
       </div>
     </header>
 
@@ -910,8 +931,8 @@
           <div class="section-head"><h2>Browse by meal</h2></div>
           <div class="cat-strip">
             <div class="cat-chip" data-page="local">
-              <span class="cat-dot" style="background: var(--sage)"></span>Naija
-              Kitchen
+              <span class="cat-dot" style="background: var(--sage)"></span
+              >Naija Kitchen
             </div>
             <div class="cat-chip" data-page="dessert">
               <span class="cat-dot" style="background: var(--raspberry)"></span
@@ -1054,9 +1075,7 @@
             <span class="section-dot" style="background: var(--saffron)"></span>
             Surprise me
           </h1>
-          <p id="surprise-page-subtitle">
-            Can't decide? Hit the button and we'll pick something for you.
-          </p>
+          <p id="surprise-page-subtitle">Can't decide? Hit the button and we'll pick something for you.</p>
         </div>
         <div class="surprise-stage">
           <div class="surprise-dial" id="surprise-card">
@@ -1088,9 +1107,7 @@
             <span class="section-dot" style="background: var(--saffron)"></span>
             Featured Restaurants
           </h1>
-          <p>
-            Spotlighted places serving up great Nigerian and international food.
-          </p>
+          <p>Spotlighted places serving up great Nigerian and international food.</p>
         </div>
         <div id="featured-list"></div>
       </div>
@@ -1120,31 +1137,16 @@
           </h1>
           <p>Spotted a bug, have an idea, or want to be featured? Tell us.</p>
         </div>
-        <div class="about-card" style="grid-template-columns: 1fr">
+        <div class="about-card" style="grid-template-columns: 1fr;">
           <div>
-            <p
-              style="
-                color: var(--plum-soft);
-                font-size: 14px;
-                margin-bottom: 14px;
-              "
-            >
+            <p style="color: var(--plum-soft); font-size: 14px; margin-bottom: 14px;">
               Type your message below, then send it however's easiest for you.
             </p>
             <textarea
               id="contact-message"
               rows="5"
               placeholder="Your message..."
-              style="
-                width: 100%;
-                padding: 14px;
-                border-radius: var(--radius-md);
-                border: 2px solid var(--border);
-                font-family: &quot;Nunito&quot;;
-                font-size: 14px;
-                resize: vertical;
-                margin-bottom: 14px;
-              "
+              style="width: 100%; padding: 14px; border-radius: var(--radius-md); border: 2px solid var(--border); font-family: 'Nunito'; font-size: 14px; resize: vertical; margin-bottom: 14px;"
             ></textarea>
             <div class="find-it-row">
               <a
@@ -1156,12 +1158,10 @@
               >
               <a class="find-it-btn" id="contact-email-btn">Send via Email</a>
             </div>
-            <p
-              style="color: var(--plum-soft); font-size: 12px; margin-top: 14px"
-            >
-              Have a question, suggestion, or feedback? We’d love to hear from
-              you. Your thoughts help us improve, create better experiences, and
-              continue giving you what you love.
+            <p style="color: var(--plum-soft); font-size: 14px; margin-top: 20px; line-height: 1.7;">
+              Have a question, suggestion, or feedback? We'd love to hear from
+              you. Your thoughts help us improve, create better experiences,
+              and continue giving you what you love.
             </p>
           </div>
         </div>
@@ -1238,11 +1238,7 @@
           <p class="instructions" id="modal-instructions"></p>
           <h4>Where to find it</h4>
           <div class="find-it-row" id="modal-find-it"></div>
-          <button
-            class="btn btn-primary"
-            id="order-now-btn"
-            style="margin-top: 14px"
-          >
+          <button class="btn btn-primary" id="order-now-btn" style="margin-top: 14px;">
             Order Now
           </button>
         </div>
@@ -1250,26 +1246,20 @@
     </div>
 
     <div class="overlay" id="order-overlay">
-      <div class="modal" style="max-width: 460px">
+      <div class="modal" style="max-width: 460px;">
         <div class="modal-body">
           <button class="modal-close" id="order-modal-close">&times;</button>
           <h2 id="order-dish-title">Where to order this</h2>
           <p class="meta" id="order-status-msg">
             Finding restaurants near you...
           </p>
-          <div id="order-city-picker" style="display: none; margin: 14px 0">
-            <p
-              style="
-                font-size: 13px;
-                color: var(--plum-soft);
-                margin-bottom: 8px;
-              "
-            >
+          <div id="order-city-picker" style="display: none; margin: 14px 0;">
+            <p style="font-size: 13px; color: var(--plum-soft); margin-bottom: 8px;">
               Couldn't detect your location. Pick your city:
             </p>
             <div class="cat-strip" id="order-city-chips"></div>
           </div>
-          <div id="order-restaurant-list" style="margin-top: 16px"></div>
+          <div id="order-restaurant-list" style="margin-top: 16px;"></div>
         </div>
       </div>
     </div>
@@ -2512,6 +2502,7 @@
         }
       }
 
+
       function getIngredientPreview(meal, count) {
         const items = [];
         for (let i = 1; i <= 20; i++) {
@@ -2731,7 +2722,9 @@
         const goLocal = Math.random() < 0.5;
         if (goLocal) {
           const dish =
-            NIGERIAN_DISHES[Math.floor(Math.random() * NIGERIAN_DISHES.length)];
+            NIGERIAN_DISHES[
+              Math.floor(Math.random() * NIGERIAN_DISHES.length)
+            ];
           currentSurpriseId = dish.id;
           currentSurpriseIsLocal = true;
           if (!dish._imgUrl) {
@@ -2808,10 +2801,8 @@
           }
           document.getElementById("modal-instructions").textContent =
             meal.strInstructions;
-          document.getElementById("modal-find-it").innerHTML = buildFindItLinks(
-            meal.strMeal,
-            false,
-          );
+          document.getElementById("modal-find-it").innerHTML =
+            buildFindItLinks(meal.strMeal, false);
           document.getElementById("modal-overlay").classList.add("show");
         } catch (e) {}
       }
@@ -3068,7 +3059,8 @@
         const dishName = currentModalDish ? currentModalDish.name : "";
         const dishLower = dishName.toLowerCase();
         let matches = RESTAURANTS.filter((r) => {
-          const cityOk = !city || r.city.toLowerCase() === city.toLowerCase();
+          const cityOk =
+            !city || r.city.toLowerCase() === city.toLowerCase();
           const dishOk =
             r.dishes.length === 0 ||
             r.dishes.some((d) => dishLower.includes(d.toLowerCase()));
@@ -3182,6 +3174,7 @@
         }
       }
 
+
       // ---- FAVORITES (saved in this browser only, via localStorage) ----
       const FAVORITES_KEY = "yummzville_favorites";
 
@@ -3270,11 +3263,7 @@
         const pageUrl = window.location.href.split("#")[0];
         if (navigator.share) {
           navigator
-            .share({
-              title: currentModalDish.name,
-              text: shareText,
-              url: pageUrl,
-            })
+            .share({ title: currentModalDish.name, text: shareText, url: pageUrl })
             .catch(() => {});
         } else {
           const waUrl =
@@ -3285,7 +3274,7 @@
       }
 
       // ---- PIDGIN TOGGLE ----
-      let isPidgin = false;
+      let currentLang = "english";
       const PIDGIN_TEXT = {
         "hero-title": "You dey wonder wetin to chop? We get idea for you.",
         "hero-subtitle":
@@ -3296,30 +3285,60 @@
           "Yummzville na recipe finder wey go show you wetin to chop😋👌",
         "about-subtitle": "Where every craving get correct home.",
       };
+      const GENZ_TEXT = {
+        "hero-title": "Hungry asf with no ideas? Say less.",
+        "hero-subtitle":
+          "Real recipes, real pics, no cap. Browse by mood, search your craving, or let us just pick for you.",
+        "surprise-page-subtitle": "Can't decide? Say less, we got you.",
+        "footer-tagline":
+          "Yummzville: no cap, we always got something for you to eat😋👌",
+        "about-subtitle": "Where every craving gets handled, no cap.",
+      };
       const ENGLISH_TEXT = {};
 
-      function toggleLanguage() {
-        isPidgin = !isPidgin;
-        const dict = isPidgin ? PIDGIN_TEXT : ENGLISH_TEXT;
-        Object.keys(PIDGIN_TEXT).forEach((id) => {
+      function applyLanguage(lang) {
+        const dict =
+          lang === "pidgin" ? PIDGIN_TEXT : lang === "genz" ? GENZ_TEXT : null;
+        const keys = Object.keys(PIDGIN_TEXT);
+        keys.forEach((id) => {
           const el = document.getElementById(id);
           if (!el) return;
           if (ENGLISH_TEXT[id] === undefined) {
             ENGLISH_TEXT[id] = el.textContent;
           }
-          el.textContent = isPidgin ? PIDGIN_TEXT[id] : ENGLISH_TEXT[id];
+          el.textContent = dict ? dict[id] : ENGLISH_TEXT[id];
         });
-        document.getElementById("lang-toggle-btn").textContent = isPidgin
-          ? "🇬🇧 English"
-          : "🇳🇬 Pidgin";
-        trackEvent("language_toggle", {
-          lang: isPidgin ? "pidgin" : "english",
-        });
+        const icon =
+          lang === "english" ? "🇬🇧" : lang === "pidgin" ? "🇳🇬" : "✨";
+        const fullName =
+          lang === "english"
+            ? "English"
+            : lang === "pidgin"
+              ? "Pidgin"
+              : "Gen Z";
+        const btn = document.getElementById("lang-toggle-btn");
+        btn.textContent = icon + " " + fullName;
+        btn.title = "Current language: " + fullName + ". Tap to switch.";
+        btn.setAttribute(
+          "aria-label",
+          "Current language: " + fullName + ". Tap to switch.",
+        );
+        trackEvent("language_toggle", { lang: lang });
+      }
+
+      function toggleLanguage() {
+        currentLang =
+          currentLang === "english"
+            ? "pidgin"
+            : currentLang === "pidgin"
+              ? "genz"
+              : "english";
+        applyLanguage(currentLang);
       }
 
       // ---- CONTACT FORM ----
       // Replace these two placeholders with your real contact details.
-      const CONTACT_WHATSAPP_NUMBER = "08146254033";
+      const CONTACT_WHATSAPP_NUMBER = "2348146254033";
       const CONTACT_EMAIL = "obiukwuelsie@gmail.com";
 
       function sendContactMessage(via) {
